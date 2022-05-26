@@ -1,0 +1,21 @@
+[source0]
+enable = 1
+uri = rtsp://47.201.113.30:554/stream0
+
+[data_sink]
+enable = 1
+script = /var/lib/canopy/models/hardhat/streaming_print.py
+
+[img-save]
+enable = false
+save-class = no_hardhat
+frame-skip-interval = 60
+save-without-bounding-box = true
+max-dir-size = 10
+
+[primary-gie]
+enable = 1
+batch-size = 1
+config-file = /var/lib/canopy/models/hardhat/inference_config.txt
+labelfile-path = /var/lib/canopy/models/hardhat/labels.txt
+model-type = object-detection

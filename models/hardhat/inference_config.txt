@@ -1,0 +1,36 @@
+[property]
+gpu-id = 0
+net-scale-factor = 0.0039215697906911373
+model-color-format = 0
+labelfile-path = labels.txt
+tlt-encoded-model = hardhat_resnet_data4.etlt
+tlt-model-key = tlt_encode
+model-engine-file = hardhat_resnet_data4.etlt_b1_gpu0_fp16.engine
+input-dims = 3;500;500;0 # where c = number of channels, h = height of the model input, w = width of model input, 0: implies CHW format.
+uff-input-blob-name = input_1
+batch-size = 1
+network-mode = 2
+num-detected-classes = 2
+interval = 0
+gie-unique-id = 1
+is-classifier = 0
+output-blob-names = output_cov/Sigmoid;output_bbox/BiasAdd
+enable_dbscan = 1
+
+[class-attrs-all]
+pre-cluster-threshold = 0.4
+group-threshold = 1
+eps = 0.7
+roi-top-offset = 0
+roi-bottom-offset = 0
+detected-min-w = 0
+detected-min-h = 0
+detected-max-w = 0
+detected-max-h = 0
+
+[class-attrs-0]
+pre-cluster-threshold = 0.3
+
+[class-attrs-1]
+pre-cluster-threshold = 0.5
+
