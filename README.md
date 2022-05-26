@@ -2,17 +2,13 @@
 
 ## Quick Start
 1. Update the `uri` value in `config.txt` with your RTSP URL
-2. Download the docker image from Keygen specific to your CUDA version:
+2. Download the docker image:
     For CUDA 11.6:
     ```
     docker pull canopyvision/canopy-vision:dgpu-cuda11.6
     ```
 
-    Verify image is loaded:
-    ```
-    docker image ls
-    ```
-3. Run an instance of the image (replace cuda11.6 with cuda11.5 if using CUDA 11.5)
+3. Run a container, replacing the license key:
     ```
     docker run -d \
     --mount type=bind,source=$PWD/config.txt,target=/root/config.txt \
