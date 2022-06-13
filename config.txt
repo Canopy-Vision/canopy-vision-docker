@@ -1,21 +1,72 @@
 [source0]
-enable = 1
+type = 4
 uri = rtsp://47.201.113.30:554/stream0
+
+[rtsp_sink]
+enable = 1
+enc-type = 0
+bitrate = 1000000
+rtsp-port = 8554
+udp-port = 5400
+width = 720
+height = 480
+
+[hls_sink]
+enable = 1
+enc-type = 0
+bitrate = 500000
+
+[file_sink]
+enable = 0
+enc-type = 0
+bitrate = 2000000
+max-video-storage = 50
+
+[training_video_sink]
+enable = 0
+enc-type = 0
+bitrate = 8000000
+max-video-storage = 50
 
 [data_sink]
 enable = 1
+stream = 1
 script = /var/lib/canopy/models/hardhat/streaming_print.py
 
 [img-save]
-enable = false
+enable = true
 save-class = no_hardhat
 frame-skip-interval = 60
+save-with-bounding-box = true
+output-folder-path-with-bounding-box = /mnt/media/images/withbb
 save-without-bounding-box = true
+output-folder-path-without-bounding-box = /mnt/media/images/withoutbb
 max-dir-size = 10
+
+[osd]
+enable = true
+border-width = 5
+text-size = 12
+text-color = 1;1;1;1
+text-bg-color = 0.3;0.3;0.3;1
+display-text = 1
+display-clock = 1
+display-bbox = 1
+clock-x-offset = 40
+clock-y-offset = 25
+clock-text-size = 16
+clock-color = 1;0;0;1
 
 [primary-gie]
 enable = 1
-batch-size = 1
-config-file = /var/lib/canopy/models/hardhat/inference_config.txt
-labelfile-path = /var/lib/canopy/models/hardhat/labels.txt
+bbox-border-color0 = 0.875;0.09;0.09;1
+bbox-border-color1 = 0.239;0.012;0.878;1
+bbox-border-color2 = 0.016;0.965;0.941;1
+bbox-border-color3 = 0.216;0.973;0.004;1
+bbox-border-color4 = 0.976;1.0;0.0;1
+bbox-border-color5 = 0.0;1.0;1.0;1
+bbox-border-color6 = 1.0;0.525;0.0;1
+bbox-border-color7 = 1.0;1.0;1.0;1
+config-file = /var/lib/canopy/models/peoplenet/inference_config.txt
+labelfile-path = /var/lib/canopy/models/peoplenet/labels.txt
 model-type = object-detection
