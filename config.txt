@@ -31,7 +31,11 @@ max-video-storage = 50
 [data_sink]
 enable = 1
 stream = 1
-script = /var/lib/canopy/models/hardhat/streaming_print.py
+interval = 5
+postprocessing-enable = 1
+postprocessing-script = /var/lib/canopy/models/hardhat/streaming_print.py
+save-raw-data = 1
+max-dir-size = 2
 
 [img-save]
 enable = true

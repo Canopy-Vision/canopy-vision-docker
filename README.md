@@ -8,9 +8,21 @@
     docker pull canopyvision/canopy-vision:dgpu-cuda11.6
     ```
 
+    For CUDA 11.4:
+    ```
+    docker pull canopyvision/canopy-vision:dgpu-cuda11.4
+    ```
+
 3. Run a container, replacing the license key:
+
+    For CUDA 11.6:
     ```
     docker run -d --mount type=bind,source=$PWD/config.txt,target=/root/config.txt --mount type=bind,source=$PWD/models,target=/var/lib/canopy/models --env LICENSE_KEY=YOUR_LICENSE_KEY --gpus all canopyvision/canopy-vision:dgpu-cuda11.6
+    ```
+
+    For CUDA 11.4:
+    ```
+    docker run -d --mount type=bind,source=$PWD/config.txt,target=/root/config.txt --mount type=bind,source=$PWD/models,target=/var/lib/canopy/models --env LICENSE_KEY=YOUR_LICENSE_KEY --gpus all canopyvision/canopy-vision:dgpu-cuda11.4
     ```
 
 ## Modifying the post-processing script
